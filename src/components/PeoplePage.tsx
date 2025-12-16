@@ -165,9 +165,15 @@ export const PeoplePage: React.FC = () => {
   );
 
   const handleQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value.trim();
     const params = new URLSearchParams(searchParams);
 
-    params.set('query', event.target.value);
+    if (value) {
+      params.set('query', value);
+    } else {
+      params.delete('query');
+    }
+
     setSearchParams(params);
   };
 

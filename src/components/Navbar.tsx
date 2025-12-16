@@ -13,14 +13,20 @@ export const Navbar: React.FC = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link
-            to="/"
+            to={{
+              pathname: '/',
+              search: location.search,
+            }}
             className={`navbar-item ${location.pathname === '/' ? 'is-active has-background-grey-lighter' : ''}`}
           >
             Home
           </Link>
 
           <Link
-            to="/people"
+            to={{
+              pathname: '/people',
+              search: location.search,
+            }}
             className={`navbar-item ${location.pathname.startsWith('/people') ? 'is-active has-background-grey-lighter' : ''}`}
           >
             People
